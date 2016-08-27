@@ -18,4 +18,18 @@
   <label for="add_ingredient">Or add an ingredient:</label>
   <input type="text" name="ingredient[name]" placeholder="Ingredient name" id="add_ingredient">
 
+  <p>Choose categories:</p>
+  <% Type.all.each do |type| %>
+    <input type="checkbox" name="recipe[type_ids][]" value="<%= type.id %>" <%= 'checked' if @recipe.types.include?(type) %>><%= type.name %></input>
+  <% end %>
+
+  <br>
+  <label for="add_type">Or add a category:</label>
+  <input type="text" name="type[name]" placeholder="Category name">
+
+  <label for="cooking_time">Cooking Time:</label>
+  <input type="text" name="recipe[cooking_time]" value="<%= @recipe.cooking_time %>">
+
+  <button type="submit">Update recipe</button>
+
 </form>
