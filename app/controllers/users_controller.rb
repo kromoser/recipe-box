@@ -17,7 +17,15 @@ class UsersController < ApplicationController
   end
 
   post '/login' do 
-    puts "you are logged in"
+    @user = User.find_by(username: params[:username])
+    if @user && @user.authenticate(params[:password])
+      session[:id] = @user.id
+      #redirect to "/recipes"
+      puts "you are logged in"
+    else 
+      flash[:message] = "Your username or password were incorrect. Try again."
+      redirect to "/"
+    end
   end
 
 
