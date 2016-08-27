@@ -54,6 +54,16 @@ class RecipesController < ApplicationController
   end
 
   patch '/recipes/:id' do
+    recipe = Recipe.find(params[:id])
+    recipe.update(params[:recipe])
+    if !params[:ingredient][:name].empty?
+      recipe.ingredients << Ingredient.create(name: params[:ingredient][:name])
+    end
+    if !params[:type][:name].empty?
+      recipe.types << Type.create(name: params[:type][:name])
+    end
+    recipe.save
+    redirect to "/recipes"
     puts "Updated recipe"
   end
 
