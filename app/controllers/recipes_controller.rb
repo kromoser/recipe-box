@@ -19,7 +19,12 @@ class RecipesController < ApplicationController
     end
     @recipe.save
     current_user.recipes << @recipe
-    puts @recipe
+    redirect to "/recipes"
+  end
+
+  get '/recipes/:id' do
+    @recipe = Recipe.find(params[:id])
+    erb :'/recipes/show'
   end
 
 end
