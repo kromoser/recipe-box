@@ -36,6 +36,12 @@ input:focus {
   background: #eeeeee;
 }
 
+input[type=checkbox] {
+  display: inline-block;
+  margin: 0 .25em 0 2em;
+}
+
+
 button {
   border 1px solid #eeeeee;
   border-style: solid;
