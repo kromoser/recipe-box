@@ -16,9 +16,20 @@ body {
   margin: 20px auto;
   padding: 0 3% 25px;
   background: #ffffff;
-
-  
 }
+
+nav {
+  width: 100%;
+  background: #777777;
+}
+
+nav a {
+  display: inline-block;
+  color: #f7f7f7;
+  padding: 20px 0 20px 15px;
+
+}
+
 
 
 /**** FORM-ATTING ****/

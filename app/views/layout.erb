@@ -14,7 +14,19 @@
       <%= flash[:message] %>
     <% end %>
 
+     <% if !!session[:id] %>
+      <nav>
+        <a href="/recipes/new">Create Recipe</a>
+        <a href="/recipes">View your recipes</a>
+        <a href="/logout">Logout</a>
+      </nav>
+    <% end %>
+
     <div class="wrapper">
+    
+   
+    
+
     <%= yield %>
     </div>
   </body>

@@ -1,9 +1,10 @@
 require "rack-flash"
+require './config/environment'
 
 class ApplicationController < Sinatra::Base
   register Sinatra::ActiveRecordExtension
   enable :sessions
-  set :static, true
+
   set :public_folder, 'public'
   set :session_secret, "my_application_secret"
   set :views, Proc.new { File.join(root, "../views/") }
