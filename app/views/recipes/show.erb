@@ -1,1 +1,20 @@
 <h1><%= @recipe.name %></h1>
+
+<% if @recipe.link %>
+  <h3><a href="<%= @recipe.link %>">Recipe Link</a></h3>
+<% end %>
+
+<h3>Key Ingredients:</h3>
+  <ul>
+    <% @recipe.ingredients.all.each do |ingredient| %>
+      <li><%= ingredient.name %></li>
+    <% end %>
+  </ul>
+
+
+<h3>Categories:</h3>
+  <ul>
+    <% @recipe.types.all.each do |type| %>
+      <li><%= type.name %></li>
+    <% end %>
+  </ul>
