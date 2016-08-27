@@ -9,8 +9,19 @@
   <!-- THOUGHT: Should the following code iterate through all of the ingredients in the db, or just through current_user.recipes.ingredients??? -->
 
   <% Ingredient.all.each do |ingredient| %>
-    <input type="checkbox" name="ingredients[]" value="<%= ingredient.id %>"><%= ingredient.name %></input>
+    <input type="checkbox" name="recipe[ingredient_ids][]" value="<%= ingredient.id %>"><%= ingredient.name %></input>
   <% end %>
 
-  
+  <p>Or, add a new key ingredient:</p>
+  <input type="text" name="ingredient[name]">
+
+  <p>Choose categories:</p>
+  <% Type.all.each do |type| %>
+    <input type="checkbox" name="recipe[type_ids][]" value="<%= type.id %>"><%= type.name %></input>
+  <% end %>
+
+  <p>Or, add a new category:</p>
+  <input type="text" name="category[name]">
+
+  <button type="submit">Create recipe</button>
 </form>
