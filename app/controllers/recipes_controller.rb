@@ -53,5 +53,9 @@ class RecipesController < ApplicationController
     end
   end
 
+  patch '/recipes/:id' do
+    puts "Updated recipe"
+  end
+
 
 end
