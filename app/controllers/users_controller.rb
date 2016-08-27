@@ -4,5 +4,8 @@ class UsersController < ApplicationController
     erb :'/users/signup'
   end
 
+  post '/login' do 
+    puts "you are logged in"
+  end
 
 end
