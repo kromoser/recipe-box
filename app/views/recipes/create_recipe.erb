@@ -2,8 +2,8 @@
 
 <form action="/recipes" method="POST">
   <input type="text" name="recipe[name]" placeholder="Recipe name">
-  <input type="text" name="recipe[cooking_time]" placeholder="Cooking Time">
-
+  
+  <input type="text" name="recipe[link]" placeholder="Recipe link">
   <p>Choose key ingredients:</p>
  
   <!-- THOUGHT: Should the following code iterate through all of the ingredients in the db, or just through current_user.recipes.ingredients??? -->
@@ -12,16 +12,17 @@
     <input type="checkbox" name="recipe[ingredient_ids][]" value="<%= ingredient.id %>"><%= ingredient.name %></input>
   <% end %>
 
-  <p>Or, add a new key ingredient:</p>
-  <input type="text" name="ingredient[name]">
+  <input type="text" name="ingredient[name]" placeholder="or add a new ingredient">
 
   <p>Choose categories:</p>
   <% Type.all.each do |type| %>
     <input type="checkbox" name="recipe[type_ids][]" value="<%= type.id %>"><%= type.name %></input>
   <% end %>
 
-  <p>Or, add a new category:</p>
-  <input type="text" name="type[name]">
+  
+  <input type="text" name="type[name]" placeholder="or add a new category">
+
+  <input type="text" name="recipe[cooking_time]" placeholder="Cooking Time">
 
   <button type="submit">Create recipe</button>
 </form>
