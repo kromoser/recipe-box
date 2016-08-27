@@ -9,7 +9,6 @@ User:
   A user has a username
   A user has an email address
   A user has a password
-
 Recipe:
   A recipe has many ingredients
   A recipe has many categories
@@ -34,6 +33,7 @@ The app will be able to:
   delete recipes
 
 Relationships:
+  Users & Recipes (recipes belong_to a user)
   Recipes & Ingredients (has_many to has_many; need a join table)
   Recipes & Categories (has_many to has_many; another join table)
 
