@@ -1,0 +1,16 @@
+<h1>Create a new recipe:</h1>
+
+<form action="/recipes" method="POST">
+  <input type="text" name="recipe[name]" placeholder="Recipe name">
+  <input type="text" name="recipe[cooking_time]" placeholder="Cooking Time">
+
+  <p>Choose key ingredients:</p>
+ 
+  <!-- THOUGHT: Should the following code iterate through all of the ingredients in the db, or just through current_user.recipes.ingredients??? -->
+
+  <% Ingredient.all.each do |ingredient| %>
+    <input type="checkbox" name="ingredients[]" value="<%= ingredient.id %>"><%= ingredient.name %></input>
+  <% end %>
+
+  
+</form>

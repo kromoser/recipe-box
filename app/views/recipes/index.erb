@@ -2,11 +2,12 @@
 
 
   <% if @user.recipes.empty? %>
-    <p>You haven't saved any recipes. Create one.</p>
+    <p>You haven't created any recipes.</p> 
   <% else %>
     <ul>
     <% @user.recipes.all.each do |recipe| %>
       <li><%= recipe.name%></li>
     <% end %>
     </ul>
+    <p><a href="/recipes/new">Create a new recipe</a></p>
   <% end %>
