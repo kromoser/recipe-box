@@ -9,4 +9,16 @@ class RecipesController < ApplicationController
     erb :'/recipes/create_recipe'
   end
 
+  post '/recipes' do 
+    @recipe = Recipe.create(params[:recipe])
+    if !params[:ingredient][:name].empty?
+      @recipe.ingredients << Ingredient.create(name: params[:ingredient][:name])
+    end
+    if !params[:type][:name].empty?
+      @recipe.types << Type.create(name: params[:type][:name])
+    end
+    @recipe.save
+    puts @recipe
+  end
+
 end
