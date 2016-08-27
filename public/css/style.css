@@ -1,9 +1,44 @@
+/**** STYLE RESET ****/
+
 * {
   margin: 0;
   padding: 0;
 }
 
+/**** GENERAL STRUCTURE ****/
+
 .wrapper {
   width: 90%;
   margin: 0 auto;
+}
+
+
+/**** FORM-ATTING ****/
+
+input {
+  display: block;
+  margin: 15px 0 0;
+  padding: 5px;
+  background: #f7f7f7;
+  outline: none;
+  border: none;
+}
+
+input:focus {
+  background: #eeeeee;
+}
+
+button {
+  border 1px solid #eeeeee;
+  border-style: solid;
+  background: #f7f7f7;
+  padding: 5px;
+  margin: 15px 0;
+  outline: none;
+  cursor: pointer;
+}
+
+button:active {
+  background: #eeeeee;
+
 }
