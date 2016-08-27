@@ -18,6 +18,7 @@ class RecipesController < ApplicationController
       @recipe.types << Type.create(name: params[:type][:name])
     end
     @recipe.save
+    current_user.recipes << @recipe
     puts @recipe
   end
 
