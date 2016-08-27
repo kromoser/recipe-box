@@ -13,7 +13,7 @@ class RecipesController < ApplicationController
 
   get '/recipes/new' do 
     if logged_in?
-      erb :'/recipes/create_recipe'
+      erb :'/recipes/create'
     else
       flash[:message] = "Please log in first"
       redirect to "/"
@@ -42,5 +42,16 @@ class RecipesController < ApplicationController
       redirect to "/"
     end
   end
+
+  get '/recipes/:id/edit' do 
+    if logged_in?
+      @recipe = Recipe.find(params[:id])
+      erb :'/recipes/edit'
+    else
+      flash[:message] = "Please log in first"
+      redirect to "/"
+    end
+  end
+
 
 end
