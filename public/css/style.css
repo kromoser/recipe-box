@@ -3,13 +3,21 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 /**** GENERAL STRUCTURE ****/
+body {
+  background: #f7f7f7;
+}
 
 .wrapper {
   width: 90%;
-  margin: 0 auto;
+  margin: 20px auto;
+  padding: 0 3% 25px;
+  background: #ffffff;
+
+  
 }
 
 
