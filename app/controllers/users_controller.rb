@@ -11,7 +11,7 @@ class UsersController < ApplicationController
     else 
       @user = User.create(username: params[:username], email: params[:email], password: params[:password])
       session[:id] = @user.id
-      #redirect to "/recipes"
+      redirect to "/recipes"
       puts "you have signed up"
     end
   end
@@ -20,8 +20,8 @@ class UsersController < ApplicationController
     @user = User.find_by(username: params[:username])
     if @user && @user.authenticate(params[:password])
       session[:id] = @user.id
-      #redirect to "/recipes"
-      puts "you are logged in"
+      redirect to "/recipes"
+      
     else 
       flash[:message] = "Your username or password were incorrect. Try again."
       redirect to "/"
