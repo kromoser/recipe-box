@@ -1,3 +1,7 @@
+<% if flash.has?(:message) %>
+  <%= flash[:message] %>
+<% end %>
+
 <h1>Sign up for the Recipe Box!</h1>
 
 <form action="/signup" method="POST">
@@ -7,3 +11,4 @@
 
   <button type="submit">Sign Up</button>
 </form>
+
