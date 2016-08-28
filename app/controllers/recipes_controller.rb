@@ -67,5 +67,17 @@ class RecipesController < ApplicationController
     puts "Updated recipe"
   end
 
+  delete '/recipes/:id' do 
+    recipe = Recipe.find(params[:id])
+    if logged_in? && current_user.recipes.include?(recipe)
+      recipe.delete
+      flash[:message] = "Recipe deleted"
+      redirect to "/recipes"
+    else
+      flash[:message] = "Please log in first"
+      redirect to "/"
+    end
+  end
+
 
 end

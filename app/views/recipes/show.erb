@@ -23,6 +23,7 @@
 <button type="submit">Edit Recipe</button>
 </form>
 
-<form action="/recipes/<%= @recipe.id %>/delete" method="POST">
+<form action="/recipes/<%= @recipe.id %>" method="POST">
+<input type="hidden" id="hidden" name="_method" value="delete">
 <button type="submit">Delete Recipe</button>
 </form>
