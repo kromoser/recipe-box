@@ -44,12 +44,15 @@ class RecipesController < ApplicationController
   end
 
   get '/recipes/:id/edit' do 
-    if logged_in?
-      @recipe = Recipe.find(params[:id])
+    @recipe = Recipe.find(params[:id])
+    if logged_in? && current_user.recipes.include?(@recipe)
       erb :'/recipes/edit'
-    else
+    elsif !logged_in?
       flash[:message] = "Please log in first"
       redirect to "/"
+    else 
+      flash[:message] = "That's not your recipe! You can only edit your own recipes."
+      redirect to "/recipes"
     end
   end
 
@@ -73,9 +76,16 @@ class RecipesController < ApplicationController
       recipe.delete
       flash[:message] = "Recipe deleted"
       redirect to "/recipes"
-    else
+    elsif !logged_in?
       flash[:message] = "Please log in first"
       redirect to "/"
+    else
+
+      # THOUGHT: Perhaps I should dynamically change the style
+      # of the edit/delete buttons and make them unclickable instead
+      # of raising an error message.
+
+      flash[:message] = "That's not your recipe. You can only delete your own recipes!"
     end
   end
 
