@@ -18,3 +18,11 @@
       <li><%= type.name %></li>
     <% end %>
   </ul>
+
+<form action="/recipes/<%= @recipe.id %>/edit">
+<button type="submit">Edit Recipe</button>
+</form>
+
+<form action="/recipes/<%= @recipe.id %>/delete" method="POST">
+<button type="submit">Delete Recipe</button>
+</form>
