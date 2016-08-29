@@ -25,7 +25,7 @@ Category:
 The app will be able to:
   create recipes
   display recipes:
-    -display all recipes
+    -display all of a user's recipes
     -display recipes by key ingredient
     -display recipes by category
     -display recipes by cooking time
@@ -36,6 +36,11 @@ Relationships:
   Users & Recipes (recipes belong_to a user)
   Recipes & Ingredients (has_many to has_many; need a join table)
   Recipes & Categories (has_many to has_many; another join table)
+
+CODE SMELL OBSERVATIONS:
+
+- if !logged_in? checks
+- finder methods (maybe these could be metaprogrammed to use the same finder with each class?)
 
 
 
