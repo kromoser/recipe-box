@@ -11,8 +11,7 @@ class UsersController < ApplicationController
       session[:id] = @user.id
       redirect to "/recipes"
     else
-      flash[:message] = "There was an error."
-      puts @user.errors
+      flash[:message] = @user.errors.full_messages
       redirect to "/signup"
     end
   end
