@@ -28,9 +28,16 @@ class RecipesController < ApplicationController
     if !params[:type][:name].empty?
       @recipe.types << Type.create(name: params[:type][:name])
     end
+    
     @recipe.save
-    current_user.recipes << @recipe
-    redirect to "/recipes"
+
+    if @recipe.save
+      current_user.recipes << @recipe
+      redirect to "/recipes"
+    else
+      flash[:message] = @recipe.errors.full_messages
+      redirect to "/recipes/new"
+    end
   end
 
   get '/recipes/:id' do
@@ -66,8 +73,15 @@ class RecipesController < ApplicationController
       recipe.types << Type.create(name: params[:type][:name])
     end
     recipe.save
-    redirect to "/recipes"
-    puts "Updated recipe"
+
+    if recipe.save
+      flash[:message] = "#{recipe.name} recipe updated."
+      redirect to "/recipes"
+    else
+      flash[:message] = recipe.errors.full_messages
+      redirect to "/recipes/#{recipe.id}/edit"
+    end
+
   end
 
   delete '/recipes/:id' do 

@@ -22,7 +22,6 @@ class UsersController < ApplicationController
       if @user && @user.authenticate(params[:password])
         session[:id] = @user.id
         redirect to "/recipes"
-      
       else 
         flash[:message] = "Your username or password were incorrect. Try again."
         redirect to "/"
