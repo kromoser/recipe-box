@@ -5,15 +5,27 @@ class UsersController < ApplicationController
   end
 
   post '/signup' do 
-    if params[:username] == "" || params[:email] == "" || params[:password] == ""
-      flash[:message] = "Please fill in all fields"
-      redirect to "/signup"
-    else 
-      @user = User.create(username: params[:username], email: params[:email], password: params[:password])
+    @user = User.new(username: params[:username], email: params[:email], password: params[:password])
+    @user.save
+    if @user.save
       session[:id] = @user.id
+      puts "USER CREATED"
       redirect to "/recipes"
-      puts "you have signed up"
+    else
+      flash[:message] = "There was an error."
+      redirect to "/signup"
     end
+
+
+    #if params[:username] == "" || params[:email] == "" || params[:password] == ""
+    #  flash[:message] = "Please fill in all fields"
+    #  redirect to "/signup"
+    #else 
+    #  @user = User.create(username: params[:username], email: params[:email], password: params[:password])
+    #  session[:id] = @user.id
+    #  redirect to "/recipes"
+    #  puts "you have signed up"
+    #end
   end
 
   post '/login' do 
