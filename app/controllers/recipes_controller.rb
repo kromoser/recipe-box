@@ -2,13 +2,9 @@ class RecipesController < ApplicationController
 
 
   get '/recipes' do
-    if logged_in?
-      @user = current_user
-      erb :'/recipes/index'
-    else
-      flash[:message] = "Please log in first"
-      redirect to "/"
-    end
+    confirm_logged_in
+    @user = current_user
+    erb :'/recipes/index'
   end
 
   get '/recipes/new' do 
