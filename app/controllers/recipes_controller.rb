@@ -8,12 +8,8 @@ class RecipesController < ApplicationController
   end
 
   get '/recipes/new' do 
-    if logged_in?
-      erb :'/recipes/create'
-    else
-      flash[:message] = "Please log in first"
-      redirect to "/"
-    end
+    confirm_logged_in
+    erb :'/recipes/create'
   end
 
   post '/recipes' do 
@@ -37,22 +33,16 @@ class RecipesController < ApplicationController
   end
 
   get '/recipes/:id' do
-    if logged_in?
-      @recipe = Recipe.find(params[:id])
-      erb :'/recipes/show'
-    else
-      flash[:message] = "Please log in first"
-      redirect to "/"
-    end
+    confirm_logged_in
+    @recipe = Recipe.find(params[:id])
+    erb :'/recipes/show'
   end
 
   get '/recipes/:id/edit' do 
+    confirm_logged_in
     @recipe = Recipe.find(params[:id])
-    if logged_in? && current_user.recipes.include?(@recipe)
+    if current_user.recipes.include?(@recipe)
       erb :'/recipes/edit'
-    elsif !logged_in?
-      flash[:message] = "Please log in first"
-      redirect to "/"
     else 
       flash[:message] = "That's not your recipe! You can only edit your own recipes."
       redirect to "/recipes"
@@ -81,14 +71,12 @@ class RecipesController < ApplicationController
   end
 
   delete '/recipes/:id' do 
+    confirm_logged_in
     recipe = Recipe.find(params[:id])
-    if logged_in? && current_user.recipes.include?(recipe)
+    if current_user.recipes.include?(recipe)
       recipe.delete
       flash[:message] = "Recipe deleted"
       redirect to "/recipes"
-    elsif !logged_in?
-      flash[:message] = "Please log in first"
-      redirect to "/"
     else
 
       # THOUGHT: Perhaps I should dynamically change the style
