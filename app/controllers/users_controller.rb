@@ -9,23 +9,12 @@ class UsersController < ApplicationController
     @user.save
     if @user.save
       session[:id] = @user.id
-      puts "USER CREATED"
       redirect to "/recipes"
     else
       flash[:message] = "There was an error."
+      puts @user.errors
       redirect to "/signup"
     end
-
-
-    #if params[:username] == "" || params[:email] == "" || params[:password] == ""
-    #  flash[:message] = "Please fill in all fields"
-    #  redirect to "/signup"
-    #else 
-    #  @user = User.create(username: params[:username], email: params[:email], password: params[:password])
-    #  session[:id] = @user.id
-    #  redirect to "/recipes"
-    #  puts "you have signed up"
-    #end
   end
 
   post '/login' do 
