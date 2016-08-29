@@ -39,8 +39,8 @@ Relationships:
 
 CODE SMELL OBSERVATIONS:
 
-- if !logged_in? checks
-- finder methods (maybe these could be metaprogrammed to use the same finder with each class?)
+[x] if !logged_in? checks
+[ ] finder methods (maybe these could be metaprogrammed to use the same finder with each class?)
 
 
 
