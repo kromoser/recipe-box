@@ -14,8 +14,6 @@ class IngredientsController < ApplicationController
     @ingredient = Ingredient.find(params[:id])
     @recipes = @ingredient.recipes.select do |recipe|
       recipe.user == current_user
-    end.collect do |recipe|
-      recipe
     end
    
 
