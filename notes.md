@@ -42,5 +42,9 @@ CODE SMELL OBSERVATIONS:
 [x] if !logged_in? checks
 [ ] finder methods (maybe these could be metaprogrammed to use the same finder with each class?)
 
+QUESTIONS FOR ASSESSMENT:
+
+- If I want to find all recipes that belong to/have an ingredient && that belong to current_user, what is the best way to do that? I read that the way I did it is slow and inefficient if there are a lot of records. What is the better way. Using something like ActiveRecord's #where with SQL queries???
+- Is there a way to always pass current_user as an instance variable without having to set it in every route?
 
 
