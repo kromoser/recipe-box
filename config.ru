@@ -9,4 +9,5 @@ use Rack::MethodOverride
 
 use UsersController
 use RecipesController
+use IngredientsController
 run ApplicationController

@@ -1,0 +1,7 @@
+<h1><%= @user.username %>'s Ingredients:</h1>
+
+<ul>
+  <% @ingredients.flatten.each do |ingredient| %>
+    <li><%= ingredient.name %></li>
+  <% end %>
+</ul>
