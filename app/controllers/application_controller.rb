@@ -36,5 +36,6 @@ class ApplicationController < Sinatra::Base
         recipe.ingredients
       end
     end
+    
   end
 end
