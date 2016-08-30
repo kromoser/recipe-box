@@ -30,6 +30,11 @@ class ApplicationController < Sinatra::Base
       else
       end
     end
-    
+
+    def all_users_ingredients(user)
+      user.recipes.collect do |recipe| 
+        recipe.ingredients
+      end
+    end
   end
 end
