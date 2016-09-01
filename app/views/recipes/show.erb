@@ -15,7 +15,7 @@
 <h3>Categories:</h3>
   <ul>
     <% @recipe.types.all.each do |type| %>
-      <li><%= type.name %></li>
+      <li><a href="/categories/<%= type.id %>"><%= type.name %></a></li>
     <% end %>
   </ul>
 
