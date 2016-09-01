@@ -36,6 +36,12 @@ class ApplicationController < Sinatra::Base
         recipe.ingredients
       end
     end
-    
+
+    def users_types(user)
+      user.recipes.collect do |recipe|
+        recipe.types
+      end
+    end
+
   end
 end
