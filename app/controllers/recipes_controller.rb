@@ -15,22 +15,10 @@ class RecipesController < ApplicationController
   post '/recipes' do 
     @recipe = Recipe.create(params[:recipe])
     if !params[:ingredient][:name].empty?
-      ingredient = Ingredient.create(name: params[:ingredient][:name])
-      if ingredient.save
-        @recipe.ingredients << ingredient
-      else
-        flash[:message] = "#{ingredient.name} is already an ingredient. Please select it."
-        redirect to "/recipes/new"
-      end
+      @recipe.ingredients << Ingredient.find_or_create_by(name: params[:ingredient][:name])
     end
     if !params[:type][:name].empty?
-      category = Type.create(name: params[:type][:name])
-      if category.save
-        @recipe.types << category
-      else
-        flash[:message] = "#{category.name} is already a category. Please select it."
-        redirect to "/recipes/new"
-      end
+      @recipe.types << Type.find_or_create_by(name: params[:type][:name])
     end
     
     @recipe.save
@@ -65,22 +53,10 @@ class RecipesController < ApplicationController
     recipe = Recipe.find(params[:id])
     recipe.update(params[:recipe])
     if !params[:ingredient][:name].empty?
-      ingredient = Ingredient.create(name: params[:ingredient][:name])
-      if ingredient.save
-        @recipe.ingredients << ingredient
-      else
-        flash[:message] = "#{ingredient.name} is already an ingredient. Please select it."
-        redirect to "/recipes/#{recipe.id}/edit"
-      end
+      recipe.ingredients << Ingredient.find_or_create_by(name: params[:ingredient][:name])
     end
     if !params[:type][:name].empty?
-      category = Type.create(name: params[:type][:name])
-      if category.save
-        @recipe.types << category
-      else
-        flash[:message] = "#{category.name} is already a category. Please select it."
-        redirect to "/recipes/#{recipe.id}/edit"
-      end
+      recipe.types << Type.find_or_create_by(name: params[:type][:name])
     end
     recipe.save
 
