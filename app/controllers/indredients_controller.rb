@@ -5,7 +5,7 @@ class IngredientsController < ApplicationController
   get '/ingredients' do 
     confirm_logged_in
     @user = current_user
-    @ingredients = users_ingredients(current_user).flatten
+    @ingredients = users_ingredients(current_user).flatten.uniq
     erb :'/ingredients/index'
   end
 
