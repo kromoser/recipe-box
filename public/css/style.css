@@ -55,6 +55,10 @@ h3 {
   margin: 10px 0;
 }
 
+h3.recipe-link {
+  margin: 10px 0 25px 0;
+}
+
 
 
 
@@ -78,6 +82,10 @@ input[type=checkbox] {
   margin: 0 .25em 25px 2em;
 }
 
+.margin-collapse {
+  margin: 5px 0;
+}
+
 
 button {
   border 1px solid #eeeeee;
@@ -87,6 +95,10 @@ button {
   margin: 25px 0;
   outline: none;
   cursor: pointer;
+}
+
+button:hover {
+  background: #dddddd;
 }
 
 button:active {

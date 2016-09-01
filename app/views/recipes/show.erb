@@ -1,7 +1,7 @@
 <h1><%= @recipe.name %></h1>
 
 <% if @recipe.link %>
-  <h3><a href="<%= @recipe.link %>">Recipe Link</a></h3>
+  <h3 class="recipe-link"><a href="<%= @recipe.link %>">&#128279; View Recipe</a></h3>
 <% end %>
 
 <h3>Key Ingredients:</h3>
@@ -20,12 +20,12 @@
   </ul>
 
 <form action="/recipes/<%= @recipe.id %>/edit">
-<button type="submit">Edit Recipe</button>
+<button type="submit" class="margin-collapse">Edit Recipe</button>
 </form>
 
 
 
 <form action="/recipes/<%= @recipe.id %>" method="POST">
 <input type="hidden" id="hidden" name="_method" value="delete">
-<button type="submit">Delete Recipe</button>
+<button type="submit" class="margin-collapse">Delete Recipe</button>
 </form>
