@@ -23,13 +23,16 @@ class RecipesController < ApplicationController
     
     @recipe.save
 
-    if @recipe.save
-      current_user.recipes << @recipe
-      redirect to "/recipes"
-    else
-      flash[:message] = @recipe.errors.full_messages
-      redirect to "/recipes/new"
-    end
+    recipe_validation(@recipe, "new")
+
+
+    #if @recipe.save
+    #  current_user.recipes << @recipe
+    #  redirect to "/recipes"
+    #else
+    #  flash[:message] = @recipe.errors.full_messages
+    #  redirect to "/recipes/new"
+    #end
   end
 
   get '/recipes/:id' do
@@ -60,13 +63,15 @@ class RecipesController < ApplicationController
     end
     recipe.save
 
-    if recipe.save
-      flash[:message] = "#{recipe.name} recipe updated."
-      redirect to "/recipes"
-    else
-      flash[:message] = recipe.errors.full_messages
-      redirect to "/recipes/#{recipe.id}/edit"
-    end
+    recipe_validation(recipe, "edit", recipe.id)
+
+    #if recipe.save
+    #  flash[:message] = "#{recipe.name} recipe updated."
+    #  redirect to "/recipes"
+    #else
+    #  flash[:message] = recipe.errors.full_messages
+    #  redirect to "/recipes/#{recipe.id}/edit"
+    #end
 
   end
 

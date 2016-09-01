@@ -43,5 +43,19 @@ class ApplicationController < Sinatra::Base
       end
     end
 
+    def recipe_validation(recipe, crud_function, id = nil)
+      if recipe.save
+        current_user.recipes << recipe
+        redirect to "/recipes"
+      else
+        flash[:message] = recipe.errors.full_messages
+        if id == nil  
+          redirect to "/recipes/#{crud_function}"
+        else
+          redirect to "/recipes/#{id}/#{crud_function}"
+        end
+      end
+    end
+
   end
 end
