@@ -1,4 +1,4 @@
-<h1><%= @user.username %>'s Recipes!!!!</h1>
+<h1><%= @user.username %>'s Recipes</h1>
 
 
   <% if @user.recipes.empty? %>
@@ -11,4 +11,6 @@
     </ul>
   <% end %>
 
-<p><a href="/recipes/new">Create a new recipe</a></p>
+<form action="/recipes/new">
+  <button type="submit">Create a new recipe</button>
+</form>
