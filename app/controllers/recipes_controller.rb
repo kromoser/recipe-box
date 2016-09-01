@@ -18,7 +18,13 @@ class RecipesController < ApplicationController
       @recipe.ingredients << Ingredient.create(name: params[:ingredient][:name])
     end
     if !params[:type][:name].empty?
-      @recipe.types << Type.create(name: params[:type][:name])
+      category = Type.create(name: params[:type][:name])
+      if category.save
+        @recipe.types << category
+      else
+        flash[:message] = "#{category.name} is already a category. Please select it."
+        redirect to "/recipes/new"
+      end
     end
     
     @recipe.save
