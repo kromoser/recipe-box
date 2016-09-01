@@ -6,7 +6,7 @@
   <% else %>
     <ul>
     <% @user.recipes.all.each do |recipe| %>
-      <li><a href="/recipes/<%= recipe.id %>"><%= recipe.name.capitalize %></a></li>
+      <li><a href="/recipes/<%= recipe.id %>"><%= recipe.name.capitalize %></a><a class="external-link" href="<%= recipe.link %>">&#128279;</a></li>
     <% end %>
     </ul>
   <% end %>
