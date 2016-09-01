@@ -44,8 +44,13 @@ class ApplicationController < Sinatra::Base
     end
 
     def recipe_validation(recipe, crud_function, id = nil)
+      recipe.save
       if recipe.save
-        current_user.recipes << recipe
+        if crud_function == "edit"
+          flash[:message] = "#{recipe.name} recipe updated."
+        elsif crud_function == "new"
+          current_user.recipes << recipe
+        end
         redirect to "/recipes"
       else
         flash[:message] = recipe.errors.full_messages

@@ -21,18 +21,9 @@ class RecipesController < ApplicationController
       @recipe.types << Type.find_or_create_by(name: params[:type][:name])
     end
     
-    @recipe.save
 
     recipe_validation(@recipe, "new")
 
-
-    #if @recipe.save
-    #  current_user.recipes << @recipe
-    #  redirect to "/recipes"
-    #else
-    #  flash[:message] = @recipe.errors.full_messages
-    #  redirect to "/recipes/new"
-    #end
   end
 
   get '/recipes/:id' do
@@ -61,7 +52,7 @@ class RecipesController < ApplicationController
     if !params[:type][:name].empty?
       recipe.types << Type.find_or_create_by(name: params[:type][:name])
     end
-    recipe.save
+    
 
     recipe_validation(recipe, "edit", recipe.id)
 
