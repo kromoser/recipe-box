@@ -13,7 +13,7 @@ body {
 
 .wrapper {
   width: 90%;
-  margin: 20px auto;
+  margin: 0 auto 25px;
   padding: 0 3% 25px;
   background: #ffffff;
 }
@@ -29,6 +29,32 @@ nav a {
   padding: 20px 0 20px 15px;
 
 }
+
+ul {
+  list-style: none;
+}
+
+ul li {
+  margin: 5px 0;
+}
+
+a {
+  text-decoration: none;
+  color: #777777;
+}
+
+a:hover {
+  color: #333333;
+}
+
+h1 {
+  padding: 25px 0 10px 0;
+}
+
+h3 {
+  margin: 10px 0;
+}
+
 
 
 
