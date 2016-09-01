@@ -1,12 +1,23 @@
-<h1>Welcome to the Recipe Box!</h1>
-
-<form action="/login" method="POST">
-  <input type="text" name="username" placeholder="Username">
-
-  <input type="password" name="password" placeholder="Password">
-
-  <button type="submit">Log In</button>
-</form>
 
 
-<p>or, <a href="/signup">sign up</a>.</p>
+<% if !session[:id] %>
+  <h1>Welcome to the Recipe Box!</h1>
+
+  <form action="/login" method="POST">
+    <input type="text" name="username" placeholder="Username">
+
+    <input type="password" name="password" placeholder="Password">
+
+    <button type="submit">Log In</button>
+  </form>
+
+
+  <p>or, <a href="/signup">sign up</a>.</p>
+
+<% else %>
+
+  <h1>Welcome, <%= @user.username %></h1>
+  <h4><a href="/recipes">View your recipes</a></h4>
+  <h4><a href="/recipes/new">Or create a new one</a></h4>
+
+<% end %>

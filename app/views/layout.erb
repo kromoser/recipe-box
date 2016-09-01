@@ -11,7 +11,7 @@
   <body>
 
     <% if flash.has?(:message) %>
-      <%= flash[:message] %>
+      <div class="error-message"><%= flash[:message] %></div>
     <% end %>
 
      <% if !!session[:id] %>

@@ -11,6 +11,7 @@ class ApplicationController < Sinatra::Base
   use Rack::Flash
 
   get '/' do
+    @user = current_user
     erb :index
   end
 
@@ -53,7 +54,7 @@ class ApplicationController < Sinatra::Base
         end
         redirect to "/recipes"
       else
-        flash[:message] = recipe.errors.full_messages
+        flash[:message] = recipe.errors.full_messages.join(" & ")
         if id == nil  
           redirect to "/recipes/#{crud_function}"
         else
