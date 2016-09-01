@@ -1,4 +1,15 @@
-<h1><%= @recipe.name %></h1>
+<h1>
+  <%= @recipe.name %> 
+
+  <form action="/recipes/<%= @recipe.id %>/edit">
+    <button type="submit">Edit</button>
+  </form>
+
+  <form action="/recipes/<%= @recipe.id %>" method="POST">
+    <input type="hidden" id="hidden" name="_method" value="delete">
+    <button type="submit">Delete</button>
+  </form>
+</h1>
 
 <% if @recipe.link %>
   <h3 class="recipe-link"><a href="<%= @recipe.link %>">&#128279; View Recipe</a></h3>
@@ -19,13 +30,3 @@
     <% end %>
   </ul>
 
-<form action="/recipes/<%= @recipe.id %>/edit">
-<button type="submit" class="margin-collapse">Edit Recipe</button>
-</form>
-
-
-
-<form action="/recipes/<%= @recipe.id %>" method="POST">
-<input type="hidden" id="hidden" name="_method" value="delete">
-<button type="submit" class="margin-collapse">Delete Recipe</button>
-</form>

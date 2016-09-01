@@ -8,7 +8,7 @@
 
 /**** GENERAL STRUCTURE ****/
 body {
-  background: #f7f7f7;
+  background: #f0f0f0;
 }
 
 .wrapper {
@@ -16,16 +16,17 @@ body {
   margin: 0 auto 25px;
   padding: 0 3% 25px;
   background: #ffffff;
+  border-radius: 15px;
 }
 
 nav {
   width: 100%;
-  background: #777777;
+  background: #dddddd;
 }
 
 nav a {
   display: inline-block;
-  color: #f7f7f7;
+  color: #777777;
   padding: 20px 0 20px 15px;
 
 }
@@ -56,7 +57,7 @@ h3 {
 }
 
 h3.recipe-link {
-  margin: 10px 0 25px 0;
+  margin: 0 0 25px 0;
 }
 
 
@@ -88,9 +89,11 @@ input[type=checkbox] {
 
 
 button {
-  border 1px solid #eeeeee;
-  border-style: solid;
-  background: #f7f7f7;
+  
+  border-style: none;
+  border-radius: 5px;
+  background: #777777;
+  color: #eeeeee;
   padding: 5px;
   margin: 25px 0;
   outline: none;
@@ -98,7 +101,7 @@ button {
 }
 
 button:hover {
-  background: #dddddd;
+  background: #333333;
 }
 
 button:active {
@@ -109,4 +112,16 @@ button:active {
 form p {
   margin: 25px 0 0;
   color: #555555;
+}
+
+h1 form {
+  display: inline-block;
+  font-size: 0.45em;
+  position: relative;
+  font-weight: normal;
+  top: -5px;
+}
+
+h1 form button {
+  margin: 0 0 0 5px;
 }
