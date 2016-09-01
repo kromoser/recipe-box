@@ -9,12 +9,13 @@ class TypesController < ApplicationController
 
   get '/categories/:id' do
     confirm_logged_in
-    @category = Type.find(id: params[:id])
+    @category = Type.find(params[:id])
     @recipes = @category.recipes.select do |recipe|
       recipe.user == current_user
     end 
 
     erb :'/categories/show'
+  end
 
 
 end
