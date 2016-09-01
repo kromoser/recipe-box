@@ -15,7 +15,13 @@ class RecipesController < ApplicationController
   post '/recipes' do 
     @recipe = Recipe.create(params[:recipe])
     if !params[:ingredient][:name].empty?
-      @recipe.ingredients << Ingredient.create(name: params[:ingredient][:name])
+      ingredient = Ingredient.create(name: params[:ingredient][:name])
+      if ingredient.save
+        @recipe.ingredients << ingredient
+      else
+        flash[:message] = "#{ingredient.name} is already an ingredient. Please select it."
+        redirect to "/recipes/new"
+      end
     end
     if !params[:type][:name].empty?
       category = Type.create(name: params[:type][:name])
@@ -59,10 +65,22 @@ class RecipesController < ApplicationController
     recipe = Recipe.find(params[:id])
     recipe.update(params[:recipe])
     if !params[:ingredient][:name].empty?
-      recipe.ingredients << Ingredient.create(name: params[:ingredient][:name])
+      ingredient = Ingredient.create(name: params[:ingredient][:name])
+      if ingredient.save
+        @recipe.ingredients << ingredient
+      else
+        flash[:message] = "#{ingredient.name} is already an ingredient. Please select it."
+        redirect to "/recipes/#{recipe.id}/edit"
+      end
     end
     if !params[:type][:name].empty?
-      recipe.types << Type.create(name: params[:type][:name])
+      category = Type.create(name: params[:type][:name])
+      if category.save
+        @recipe.types << category
+      else
+        flash[:message] = "#{category.name} is already a category. Please select it."
+        redirect to "/recipes/#{recipe.id}/edit"
+      end
     end
     recipe.save
 
