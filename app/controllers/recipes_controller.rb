@@ -9,6 +9,7 @@ class RecipesController < ApplicationController
 
   get '/recipes/new' do 
     confirm_logged_in
+    @ingredients = users_ingredients(current_user).flatten.uniq
     erb :'/recipes/create'
   end
 
@@ -21,9 +22,7 @@ class RecipesController < ApplicationController
       @recipe.types << Type.find_or_create_by(name: params[:type][:name])
     end
     
-
     recipe_validation(@recipe, "new")
-
   end
 
   get '/recipes/:id' do
@@ -35,6 +34,7 @@ class RecipesController < ApplicationController
   get '/recipes/:id/edit' do 
     confirm_logged_in
     @recipe = Recipe.find(params[:id])
+    @ingredients = users_ingredients(current_user).flatten.uniq
     if current_user.recipes.include?(@recipe)
       erb :'/recipes/edit'
     else 

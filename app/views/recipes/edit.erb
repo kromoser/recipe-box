@@ -10,7 +10,7 @@
   <input type="text" name="recipe[link]" value="<%= @recipe.link %>" placeholder="Recipe Link" id="link">
 
   <p>Choose key ingredients:</p>
-  <% Ingredient.all.each do |ingredient| %>
+  <% @ingredients.each do |ingredient| %>
     <input type="checkbox" name="recipe[ingredient_ids][]" value="<%= ingredient.id %>" <%= 'checked' if @recipe.ingredients.include?(ingredient) %>><%= ingredient.name %></input>
   <% end %>
 

@@ -8,7 +8,7 @@
  
   <!-- THOUGHT: Should the following code iterate through all of the ingredients in the db, or just through current_user.recipes.ingredients??? -->
 
-  <% Ingredient.all.each do |ingredient| %>
+  <% @ingredients.each do |ingredient| %>
     <input type="checkbox" name="recipe[ingredient_ids][]" value="<%= ingredient.id %>"><%= ingredient.name %></input>
   <% end %>
 
