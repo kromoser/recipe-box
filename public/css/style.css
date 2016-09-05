@@ -107,7 +107,7 @@ button {
   border-radius: 5px;
   background: #777777;
   color: #eeeeee;
-  padding: 5px;
+  padding: 5px 10px;
   margin: 25px 0;
   outline: none;
   cursor: pointer;
@@ -123,8 +123,16 @@ button:active {
 }
 
 form p {
-  margin: 25px 0 0;
+  margin: 20px 0 5px;
   color: #555555;
+}
+
+p.checkbox-label {
+  margin: 0 0 10px;
+}
+
+p.checkbox-label input {
+  margin: 5px 5px 0 10px;
 }
 
 h1 form {

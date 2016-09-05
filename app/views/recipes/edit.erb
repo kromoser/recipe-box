@@ -11,7 +11,7 @@
 
   <p>Choose key ingredients:</p>
   <% @ingredients.each do |ingredient| %>
-    <input type="checkbox" name="recipe[ingredient_ids][]" value="<%= ingredient.id %>" <%= 'checked' if @recipe.ingredients.include?(ingredient) %>><%= ingredient.name %></input>
+    <p class="checkbox-label"><input type="checkbox" name="recipe[ingredient_ids][]" value="<%= ingredient.id %>" <%= 'checked' if @recipe.ingredients.include?(ingredient) %>><%= ingredient.name %></input></p>
   <% end %>
 
   <br>
@@ -20,7 +20,7 @@
 
   <p>Choose categories:</p>
   <% @types.each do |type| %>
-    <input type="checkbox" name="recipe[type_ids][]" value="<%= type.id %>" <%= 'checked' if @recipe.types.include?(type) %>><%= type.name %></input>
+    <p class="checkbox-label"><input type="checkbox" name="recipe[type_ids][]" value="<%= type.id %>" <%= 'checked' if @recipe.types.include?(type) %>><%= type.name %></input></p>
   <% end %>
 
   <br>
