@@ -9,27 +9,60 @@
 
 /**** GENERAL STRUCTURE ****/
 body {
-  background: #f0f0f0;
+  background: #404B72;
+}
+
+.tab {
+  width: 22%;
+  margin: 25px 0 0 5%;
+  background: #FFF2DF;
+  height: 30px;
+  border-radius: 15px 15px 0 0;
+  box-shadow: -5px 5px 5px #0F224A;
+  position: relative;
+  top: 1px;
+  z-index: -1;
+}
+
+.tab:after {
+  position: absolute;
+  content: " ";
+  width: 15px;
+  height: 15px;
+  color: red;
+  top: 15px;
+  right: -15px;
+  
+  box-shadow: -4px 4px 0 #FFF2DF;
+  background: #404B72;
+  border-radius: 0 0 0 10px;
+
 }
 
 .wrapper {
   width: 90%;
   margin: 0 auto 25px;
   padding: 0 3% 25px;
-  background: #ffffff;
-  border-radius: 15px;
+  background: #FFF2DF;
+  border-radius: 0 15px 15px 15px;
+  box-shadow: -5px 5px 5px #0F224A;
 }
 
 nav {
   width: 100%;
-  background: #dddddd;
+  background: #9FA5C8;
 }
 
 nav a {
   display: inline-block;
-  color: #777777;
-  padding: 20px 0 20px 15px;
+  color: #404B72;
+  padding: 20px 15px 20px 15px;
 
+}
+
+nav a:hover {
+  background: #232A48;
+  color: #b8d9dd;
 }
 
 ul {
@@ -50,6 +83,7 @@ a:hover {
 }
 
 h1 {
+  margin: 0;
   padding: 25px 0 10px 0;
 }
 
