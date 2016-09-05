@@ -30,6 +30,8 @@ class RecipesController < ApplicationController
   get '/recipes/:id' do
     confirm_logged_in
     @recipe = Recipe.find(params[:id])
+    @ingredients = @recipe.ingredients.all
+    @types = @recipe.types.all
     erb :'/recipes/show'
   end
 

@@ -11,13 +11,17 @@
   </form>
 </h1>
 
-<% if @recipe.link %>
-  <h3 class="recipe-link"><a href="<%= @recipe.link %>">&#128279; View Recipe</a></h3>
+
+<h3 class="recipe-link"><a href="<%= @recipe.link %>">&#128279; View Recipe</a></h3>
+
+<% if !@recipe.cooking_time.empty? %>
+  <h3>Cooking Time: <%= @recipe.cooking_time %></h3>
 <% end %>
+
 
 <h3>Key Ingredients:</h3>
   <ul>
-    <% @recipe.ingredients.all.each do |ingredient| %>
+    <% @ingredients.each do |ingredient| %>
       <li><a href="/ingredients/<%= ingredient.id %>"><%= ingredient.name.capitalize %></a></li>
     <% end %>
   </ul>
@@ -25,7 +29,7 @@
 
 <h3>Categories:</h3>
   <ul>
-    <% @recipe.types.all.each do |type| %>
+    <% @types.each do |type| %>
       <li><a href="/categories/<%= type.id %>"><%= type.name.capitalize %></a></li>
     <% end %>
   </ul>
