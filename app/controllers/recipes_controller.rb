@@ -10,6 +10,7 @@ class RecipesController < ApplicationController
   get '/recipes/new' do 
     confirm_logged_in
     @ingredients = users_ingredients(current_user).flatten.uniq
+    @types = users_types(current_user).flatten.uniq
     erb :'/recipes/create'
   end
 
@@ -35,6 +36,7 @@ class RecipesController < ApplicationController
     confirm_logged_in
     @recipe = Recipe.find(params[:id])
     @ingredients = users_ingredients(current_user).flatten.uniq
+    @types = users_types(current_user).flatten.uniq
     if current_user.recipes.include?(@recipe)
       erb :'/recipes/edit'
     else 
@@ -53,16 +55,7 @@ class RecipesController < ApplicationController
       recipe.types << Type.find_or_create_by(name: params[:type][:name])
     end
     
-
     recipe_validation(recipe, "edit", recipe.id)
-
-    #if recipe.save
-    #  flash[:message] = "#{recipe.name} recipe updated."
-    #  redirect to "/recipes"
-    #else
-    #  flash[:message] = recipe.errors.full_messages
-    #  redirect to "/recipes/#{recipe.id}/edit"
-    #end
 
   end
 

@@ -1,5 +1,3 @@
-
-
 class IngredientsController < ApplicationController
 
   get '/ingredients' do 
@@ -15,9 +13,6 @@ class IngredientsController < ApplicationController
     @recipes = @ingredient.recipes.select do |recipe|
       recipe.user == current_user
     end
-   
-
-
 
     erb :'/ingredients/show'
   end 

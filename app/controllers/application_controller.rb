@@ -11,7 +11,9 @@ class ApplicationController < Sinatra::Base
   use Rack::Flash
 
   get '/' do
-    @user = current_user
+    if logged_in?
+      @user = current_user
+    end
     erb :index
   end
 

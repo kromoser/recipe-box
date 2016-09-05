@@ -19,7 +19,7 @@
   <input type="text" name="ingredient[name]" placeholder="Ingredient name" id="add_ingredient">
 
   <p>Choose categories:</p>
-  <% Type.all.each do |type| %>
+  <% @types.each do |type| %>
     <input type="checkbox" name="recipe[type_ids][]" value="<%= type.id %>" <%= 'checked' if @recipe.types.include?(type) %>><%= type.name %></input>
   <% end %>
 

@@ -5,8 +5,6 @@
   
   <input type="text" name="recipe[link]" placeholder="Recipe link">
   <p>Choose key ingredients:</p>
- 
-  <!-- THOUGHT: Should the following code iterate through all of the ingredients in the db, or just through current_user.recipes.ingredients??? -->
 
   <% @ingredients.each do |ingredient| %>
     <input type="checkbox" name="recipe[ingredient_ids][]" value="<%= ingredient.id %>"><%= ingredient.name %></input>
@@ -16,7 +14,7 @@
 
 
   <p>Choose categories:</p>
-  <% Type.all.each do |type| %>
+  <% @types.each do |type| %>
     <input type="checkbox" name="recipe[type_ids][]" value="<%= type.id %>"><%= type.name %></input>
   <% end %>
 
