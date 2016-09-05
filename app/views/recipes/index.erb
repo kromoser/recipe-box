@@ -5,7 +5,7 @@
     <p>You haven't created any recipes.</p> 
   <% else %>
     <ul>
-    <% @user.recipes.all.each do |recipe| %>
+    <% @recipes.each do |recipe| %>
       <li><a href="/recipes/<%= recipe.id %>"><%= recipe.name.capitalize %></a><a class="external-link" href="<%= recipe.link %>">&#128279;</a></li>
     <% end %>
     </ul>

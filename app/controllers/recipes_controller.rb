@@ -4,6 +4,7 @@ class RecipesController < ApplicationController
   get '/recipes' do
     confirm_logged_in
     @user = current_user
+    @recipes = @user.recipes.all
     erb :'/recipes/index'
   end
 
