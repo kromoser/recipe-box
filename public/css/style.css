@@ -9,7 +9,15 @@
 
 /**** GENERAL STRUCTURE ****/
 body {
-  background: #404B72;
+  background: repeating-linear-gradient(
+  45deg,
+  #334366,
+  #334366 3px,
+  #333358 3px,
+  #333358 6px
+);
+  background-size: 9px 9px;
+  
 }
 
 .tab {
@@ -34,7 +42,7 @@ body {
   right: -15px;
   
   box-shadow: -4px 4px 0 #FFF2DF;
-  background: #404B72;
+ 
   border-radius: 0 0 0 10px;
 
 }
@@ -50,13 +58,14 @@ body {
 
 nav {
   width: 100%;
-  background: #9FA5C8;
+  background: rgba(168,181,205, 0.8);
 }
 
 nav a {
   display: inline-block;
   color: #404B72;
   padding: 20px 15px 20px 15px;
+  font-size: 0.8em;
 
 }
 
@@ -75,15 +84,15 @@ ul li {
 
 a {
   text-decoration: none;
-  color: #777777;
+  color: #334366;
 }
 
 a:hover {
-  color: #333333;
+  color: #50639d;
 }
 
 h1 {
-  margin: 0;
+  margin: 0 0 10px 0;
   padding: 25px 0 10px 0;
 }
 
@@ -116,19 +125,26 @@ input {
   display: block;
   margin: 0 0 25px 0;
   padding: 5px;
-  background: #f7f7f7;
+  background: rgba(168,181,205, 0.2);
   outline: none;
   border: none;
 }
 
 input:focus {
-  background: #eeeeee;
+ background: rgba(168,181,205, 0.8);
 }
 
 input[type=checkbox] {
   display: inline-block;
   margin: 0 .25em 25px 2em;
 }
+
+input[type=text], 
+input[type=password], 
+input[type=email] {
+  border-radius: 6px;
+}
+
 
 .margin-collapse {
   margin: 5px 0;
@@ -139,7 +155,7 @@ button {
   
   border-style: none;
   border-radius: 5px;
-  background: #777777;
+  background: #333358;
   color: #eeeeee;
   padding: 5px 10px;
   margin: 25px 0;
@@ -148,11 +164,11 @@ button {
 }
 
 button:hover {
-  background: #333333;
+  background: #232A48;
 }
 
 button:active {
-  background: #eeeeee;
+  background: #334366;
 
 }
 
