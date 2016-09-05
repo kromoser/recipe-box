@@ -1,7 +1,11 @@
-<h1>All of your categories:</h1>
+<h1>Browse your recipes by category:</h1>
 
-<ul>
-  <% @categories.each do |category| %>
-    <li><a href="/categories/<%= category.id %>"><%= category.name.capitalize %></a></li>
-  <% end %>
-</ul>
+<% if @categories.empty? %>
+  <p>You don't have any categories. Try <a href="/recipes/new">creating a recipe</a>.</p>
+<% else %>
+  <ul>
+    <% @categories.each do |category| %>
+      <li><a href="/categories/<%= category.id %>"><%= category.name.capitalize %></a></li>
+    <% end %>
+  </ul>
+<% end %>

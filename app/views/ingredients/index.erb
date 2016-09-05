@@ -1,7 +1,11 @@
 <h1>Browse your recipes by ingredient:</h1>
 
-<ul>
-  <% @ingredients.each do |ingredient| %>
-    <li><a href="/ingredients/<%= ingredient.id %>"><%= ingredient.name.capitalize %></a></li>
-  <% end %>
-</ul>
+<% if @ingredients.empty? %>
+  <p>You don't have any ingredients. Try <a href="/recipes/new">creating a recipe</a>.</p>
+<% else %>
+  <ul>
+    <% @ingredients.each do |ingredient| %>
+      <li><a href="/ingredients/<%= ingredient.id %>"><%= ingredient.name.capitalize %></a></li>
+    <% end %>
+  </ul>
+<% end %>
