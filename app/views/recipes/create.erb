@@ -6,9 +6,15 @@
   <input type="text" name="recipe[link]" placeholder="Recipe link">
   <p>Choose key ingredients:</p>
 
-  <% @ingredients.each do |ingredient| %>
-    <p class="checkbox-label"><input type="checkbox" name="recipe[ingredient_ids][]" value="<%= ingredient.id %>"><%= ingredient.name %></input></p>
-  <% end %>
+   <div class="multi-column-list">
+    <% @ingredients.each do |ingredient| %>
+     
+        <p class="checkbox-label">
+          <input type="checkbox" name="recipe[ingredient_ids][]" value="<%= ingredient.id %>"><%= ingredient.name %></input>
+          </p>
+      
+    <% end %>
+  </div>
 
   <input type="text" name="ingredient[name]" placeholder="or add a new ingredient">
 

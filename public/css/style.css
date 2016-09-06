@@ -196,3 +196,10 @@ h1 form {
 h1 form button {
   margin: 0 0 0 5px;
 }
+
+.multi-column-list {
+  -webkit-column-count: 3; /* Chrome, Safari, Opera */
+  -moz-column-count: 3; /* Firefox */
+  column-count: 3;
+
+}
