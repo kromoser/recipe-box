@@ -10,7 +10,9 @@
     <% @ingredients.each do |ingredient| %>
      
         <p class="checkbox-label">
-          <input type="checkbox" name="recipe[ingredient_ids][]" value="<%= ingredient.id %>"><%= ingredient.name %></input>
+          
+          <input type="checkbox" name="recipe[ingredient_ids][]" value="<%= ingredient.id %>" id="ingredient-<%= ingredient.id %>">
+          <label for="ingredient-<%= ingredient.id %>"><%= ingredient.name %></label>
           </p>
       
     <% end %>
@@ -23,7 +25,8 @@
   <div class="multi-column-list">
     <% @types.each do |type| %>
       <p class="checkbox-label">
-        <input type="checkbox" name="recipe[type_ids][]" value="<%= type.id %>"><%= type.name %></input>
+        <input type="checkbox" name="recipe[type_ids][]" value="<%= type.id %>" id="type-<%= type.id %>">
+        <label for="type-<%= type.id %>"><%= type.name %></label>
       </p>
     <% end %>
   </div>
