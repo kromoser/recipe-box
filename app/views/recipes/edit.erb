@@ -10,18 +10,26 @@
   <input type="text" name="recipe[link]" value="<%= @recipe.link %>" placeholder="Recipe Link" id="link">
 
   <p>Choose key ingredients:</p>
-  <% @ingredients.each do |ingredient| %>
-    <p class="checkbox-label"><input type="checkbox" name="recipe[ingredient_ids][]" value="<%= ingredient.id %>" <%= 'checked' if @recipe.ingredients.include?(ingredient) %>><%= ingredient.name %></input></p>
-  <% end %>
+  <div class="multi-column-list">
+    <% @ingredients.each do |ingredient| %>
+      <p class="checkbox-label">
+        <input type="checkbox" name="recipe[ingredient_ids][]" value="<%= ingredient.id %>" <%= 'checked' if @recipe.ingredients.include?(ingredient) %>><%= ingredient.name %></input>
+      </p>
+    <% end %>
+  </div>
 
   <br>
   <label for="add_ingredient">Or add an ingredient:</label>
   <input type="text" name="ingredient[name]" placeholder="Ingredient name" id="add_ingredient">
 
   <p>Choose categories:</p>
-  <% @types.each do |type| %>
-    <p class="checkbox-label"><input type="checkbox" name="recipe[type_ids][]" value="<%= type.id %>" <%= 'checked' if @recipe.types.include?(type) %>><%= type.name %></input></p>
-  <% end %>
+  <div class="multi-column-list">
+    <% @types.each do |type| %>
+      <p class="checkbox-label">
+        <input type="checkbox" name="recipe[type_ids][]" value="<%= type.id %>" <%= 'checked' if @recipe.types.include?(type) %>><%= type.name %></input>
+      </p>
+    <% end %>
+  </div>
 
   <br>
   <label for="add_type">Or add a category:</label>
