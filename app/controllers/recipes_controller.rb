@@ -10,8 +10,10 @@ class RecipesController < ApplicationController
 
   get '/recipes/new' do 
     confirm_logged_in
-    @ingredients = users_ingredients(current_user).flatten.uniq
-    @types = users_types(current_user).flatten.uniq
+    @ingredients = current_user.ingredients.uniq
+    @types = current_user.types.uniq
+    #@ingredients = users_ingredients(current_user).flatten.uniq
+    #@types = users_types(current_user).flatten.uniq
     erb :'/recipes/create'
   end
 
@@ -38,8 +40,10 @@ class RecipesController < ApplicationController
   get '/recipes/:id/edit' do 
     confirm_logged_in
     @recipe = Recipe.find(params[:id])
-    @ingredients = users_ingredients(current_user).flatten.uniq
-    @types = users_types(current_user).flatten.uniq
+    @ingredients = current_user.ingredients.uniq
+    @types = current_user.types.uniq
+    #@ingredients = users_ingredients(current_user).flatten.uniq
+    #@types = users_types(current_user).flatten.uniq
     if current_user.recipes.include?(@recipe)
       erb :'/recipes/edit'
     else 

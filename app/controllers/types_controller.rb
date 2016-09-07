@@ -3,7 +3,8 @@ class TypesController < ApplicationController
   get '/categories' do 
     confirm_logged_in
     @user = current_user
-    @categories = users_types(current_user).flatten.uniq
+    @categories = current_user.types.uniq
+    #@categories = users_types(current_user).flatten.uniq
     erb :'/categories/index'
   end
 

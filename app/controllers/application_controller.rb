@@ -34,17 +34,17 @@ class ApplicationController < Sinatra::Base
       end
     end
 
-    def users_ingredients(user)
-      user.recipes.collect do |recipe| 
-        recipe.ingredients
-      end
-    end
+    # def users_ingredients(user)
+    #   user.recipes.collect do |recipe| 
+    #     recipe.ingredients
+    #   end
+    # end
 
-    def users_types(user)
-      user.recipes.collect do |recipe|
-        recipe.types
-      end
-    end
+    # def users_types(user)
+    #   user.recipes.collect do |recipe|
+    #     recipe.types
+    #   end
+    # end
 
     def recipe_validation(recipe, crud_function, id = nil)
       recipe.save
