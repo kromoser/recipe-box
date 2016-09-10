@@ -48,7 +48,7 @@ class RecipesController < ApplicationController
       erb :'/recipes/edit'
     else 
       flash[:message] = "That's not your recipe! You can only edit your own recipes."
-      redirect to "/recipes"
+      redirect to "/recipes/#{@recipe.id}"
     end
   end
 
@@ -80,6 +80,7 @@ class RecipesController < ApplicationController
       # of raising an error message.
 
       flash[:message] = "That's not your recipe. You can only delete your own recipes!"
+      redirect to "/recipes/#{recipe.id}"
     end
   end
 
