@@ -8,13 +8,11 @@ To install and run Recipe Box, clone the repository, and run:
 ````
 bundle install
 ````
-````
-rake db:migrate
-````
+
 ````
 shotgun
 ````
-Sign up as a user or login and enjoy.
+The database should be set up for you, so just sign up as a user or login and enjoy.
 
 # Contributing
 
